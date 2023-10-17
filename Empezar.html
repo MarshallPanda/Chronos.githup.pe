@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styleEmpezar.css">
+  <title>Contador con Música de Fondo</title>
+</head>
+<body>
+<!--CODIGO DEL BOTON DE VOLVER-->
+<a href="index.html" id="volver-btn">Volver</a> 
+  <div id="main-container">
+<!--CODIGO DEL GIF-->
+  <div id="main-container">
+    <div id="container">
+      <div id="img-container">
+        <img src="image/Anime_Fron.gif" alt="John Doe">
+      </div>
+<!--CODIGO DEL CONTADOR DE TIEMPO ATRAS-->
+      <div id="contador">
+        <div id="temporizador">
+          <input type="number" id="horas" placeholder="Horas" min="0" max="24">
+          <input type="number" id="minutos" placeholder="Minutos" min="0" max="59">
+          <input type="number" id="segundos" placeholder="Segundos" min="0" max "59">
+        </div>
+        <button id="comenzar">Comenzar</button>
+        <button id="reiniciar" style="display: none;">Reiniciar</button>
+        <div id="tiempo-restante" style="font-size: 1.5rem; font-weight: bold; color: #fff;"></div>
+      </div>
+    </div>
+  </div>
+  <audio id="musica-fondo" src="music/LATE NIGHT.ogg" loop autoplay volume="0.05"></audio>
+  <audio id="sonido" src="music/alarma.mp3"></audio>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contador = document.getElementById('contador');
+    const temporizador = document.getElementById('temporizador');
+    const horasInput = document.getElementById('horas');
+    const minutosInput = document.getElementById('minutos');
+    const segundosInput = document.getElementById('segundos');
+    const comenzarBtn = document.getElementById('comenzar');
+    const reiniciarBtn = document.getElementById('reiniciar');
+    const sonido = document.getElementById('sonido');
+    const musicaFondo = document.getElementById('musica-fondo');
+    const tiempoRestanteDisplay = document.getElementById('tiempo-restante');
+    let tiempoRestante = 0;
+    let intervalo;
+
+    comenzarBtn.addEventListener('click', function() {
+      const horas = parseInt(horasInput.value) || 0;
+      const minutos = parseInt(minutosInput.value) || 0;
+      const segundos = parseInt(segundosInput.value) || 0;
+
+      tiempoRestante = (horas * 3600) + (minutos * 60) + segundos;
+
+      if (tiempoRestante > 0) {
+        temporizador.style.display = 'none';
+        comenzarBtn.style.display = 'none';
+        reiniciarBtn.style.display = 'block';
+        tiempoRestanteDisplay.style.display = 'block';
+        sonido.loop = true; // Reproducir el sonido en bucle
+
+        intervalo = setInterval(function() {
+          tiempoRestante--;
+
+          if (tiempoRestante <= 0) {
+            tiempoRestante = 0;
+            sonido.play(); // ReprodE el sonido cuando llegue a 0
+            musicaFondo.volume = 0; // Detener la música de fondo al sonar la alarma (0)
+          }
+
+          const horasRestantes = Math.floor(tiempoRestante / 3600);
+          const minutosRestantes = Math.floor((tiempoRestante % 3600) / 60);
+          const segundosRestantes = tiempoRestante % 60;
+
+          tiempoRestanteDisplay.textContent = `${horasRestantes}:${minutosRestantes}:${segundosRestantes}`;
+        }, 1000);
+      } else {
+        alert("Ingresa un tiempo válido.");
+      }
+    });
+
+    reiniciarBtn.addEventListener('click', function() {
+      clearInterval(intervalo);
+      tiempoRestante = 0;
+      horasInput.value = '';
+      minutosInput.value = '';
+      segundosInput.value = '';
+      tiempoRestanteDisplay.textContent = '0:00:00'; // MOSTRAR CUANDO LLEGUE A 0 Y NO NUMERO -0
+      reiniciarBtn.style.display = 'none';
+      tiempoRestanteDisplay.style.display = 'none';
+      temporizador.style.display = 'flex';
+      comenzarBtn.style.display = 'block';
+      sonido.pause(); // Pausar el sonido cuando se presiona el botón de reinicio
+      musicaFondo.volume = 0.5; // Restaurar el volumen de la música de fondo
+    });
+  });
+</script>
+</html>

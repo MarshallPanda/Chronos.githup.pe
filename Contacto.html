@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>⏳Chronos⏳</title>
+    <link rel="shortcut icon" href="image/Favicon-Logo.png">
+    <link rel="stylesheet" type="text/css" href="css/stylecontacto.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="index.html">Chronos</a></div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            <a href="Empezar.html" class="action_btn">Empezar</a>
+            <div class="toggle_btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="Empezar.html" class="action_btn">Empezar</a></li>
+            </ul>
+        </div>
+
+        <div class="wrapper">
+            <form action="https://api.whatsapp.com/send?phone=51929586686&text=Hola+mi+nombre+es_____+vengo+de+tu+paguina+de+Cronos+y+me+gastar%C3%ADa+hablar+contigo" method="get" target="_blank">
+                <FONT COLOR="white"><h2><b>Click En La Letra</b></h2></FONT>
+                <button>
+                <a href="https://api.whatsapp.com/send?phone=51929586686&text=Hola+mi+nombre+es_____+vengo+de+tu+paguina+de+Cronos+y+me+gastar%C3%ADa+hablar+contigo" method="get" target="_blank">
+                  WHATSAPP
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </button>
+              
+            </form>
+          </div>
+          
+        
+        
+<!--LAS CREDITOS Y REDES SOCIALES-->
+        <footer>
+          <p>
+            Creado por <i class="fa fa-heart"></i>
+            <a target="_blank" href="#link">Jeimy Pando</a>
+            Follow me : 
+              <a target="_blank"  href="https://github.com/MarshallPanda/Chronos.githup.pe.git"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="#"><i class="fab fa-whatsapp"></i></a> 
+          </p>
+        </footer>
+        
+
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>CONTACTO</h1>
+            <p>Desde aqui podras enviarme un mensaje a mi numero <b>privado</b> para que tepuedas contactar conmigo</p>
+        </section>
+    </main>
+    <script>
+      //Obtenemos una referencia del mini menu (amarillo)
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        //funcion del boton del mini menu (amarillo)
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        };
+    </script>
+</body>
+</html>

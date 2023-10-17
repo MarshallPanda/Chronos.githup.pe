@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://images3.alphacoders.com/279/thumbbig-279215.webp'); /*IMAGEN DE FONDO*/
+  height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  overflow: hidden; 
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; 
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+#img-container {
+  text-align: center;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#img-container img {
+  border-radius: 10px;
+}
+
+#contador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#temporizador {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#temporizador input {
+  width: 140px;
+  padding: 10px;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#temporizador input[type="number"]::-webkit-inner-spin-button,
+#temporizador input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#comenzar, #reiniciar {
+  background-color: #3305da;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#comenzar:hover, #reiniciar:hover {
+  transform: scale(1.05);
+}
+
+#comenzar:active, #reiniciar:active {
+  transform: scale(0.95);
+}
+
+#reiniciar {
+  display: none;
+}
+
+#tiempo-restante {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px;
+  display: none;
+}
+
+/*CODIGO DEL BOTON DE VOLER*/
+#volver-btn {
+  position: absolute;
+  top: 10px; /* Alinea con la parte superior */
+  right: 10px; /* Alinea con el lado derecho */
+  background-color: #3305da;
+  color: #fff;
+  padding: 10px 20px; /* Ajusta el espaciado del botón "Volver" */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem; /* Ajusta el tamaño de fuente del botón "Volver" */
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#volver-btn:hover {
+  background-color: #1f039d; 
+}
